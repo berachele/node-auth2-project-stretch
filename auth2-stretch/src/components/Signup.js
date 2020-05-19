@@ -15,12 +15,12 @@ class Signup extends React.Component{
         this.setState({
             credentials:{
                 ...this.state.credentials,
-                [e.targe.name]: e.target.value
+                [e.target.name]: e.target.value
             }
         })
     }
 
-    login = e => {
+    signup = e => {
         e.preventDefault()
         axiosWithAuth()
             .post('/api/users/register', this.state.credentials)
@@ -37,31 +37,32 @@ class Signup extends React.Component{
     render(){
         return(
             <>
-            <form onSubmit={}>
+            <form onSubmit={this.signup}>
                 <h2>Let's get Started!</h2>
                 <p>Create your account</p>
                 <div>
-                    <label htmlFor="username">
+                    <label htmlFor="username">Username: 
                         <input 
                         id="username" 
                         name="username" 
                         value={this.state.username} 
                         onChange={this.handleChange}
-                    /></label>
-                    <label htmlFor="password">
+                    /></label><br />
+                    <label htmlFor="password">Password:
                         <input 
                         id="password" 
+                        type="password"
                         name="password" 
                         value={this.state.password} 
                         onChange={this.handleChange}
-                    /></label>
-                     <label htmlFor="department">
+                    /></label><br />
+                     <label htmlFor="department">Department:
                         <input 
                         id="department" 
                         name="department" 
                         value={this.state.department} 
                         onChange={this.handleChange}
-                    /></label>
+                    /></label> <br />
                     <button>Sign up!</button>
                     <p>Already have an Account? <Link to='/login'>Log in!</Link></p>
                 </div>

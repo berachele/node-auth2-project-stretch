@@ -14,7 +14,7 @@ class Login extends React.Component{
         this.setState({
             credentials:{
                 ...this.state.credentials,
-                [e.targe.name]: e.target.value
+                [e.target.name]: e.target.value
             }
         })
     }
@@ -36,26 +36,27 @@ class Login extends React.Component{
     render(){
         return(
             <>
-            <form onSubmit={}>
+            <form onSubmit={this.login}>
                 <h2>Welcome Back!</h2>
                 <p>Login to your account</p>
                 <div>
-                    <label htmlFor="username">
+                    <label htmlFor="username">Username:
                         <input 
                         id="username" 
+                        type="password"
                         name="username" 
                         value={this.state.username} 
                         onChange={this.handleChange}
-                    /></label>
-                    <label htmlFor="password">
+                    /></label><br />
+                    <label htmlFor="password">Password:
                         <input 
                         id="password" 
                         name="password" 
                         value={this.state.password} 
                         onChange={this.handleChange}
-                    /></label>
+                    /></label><br />
                     <button>Login</button>
-                    <p>Dont have an Account? <Link to='/signup'>Sign up!</Link></p>
+                    <p>Dont have an Account? <Link to='/'>Sign up!</Link></p>
                 </div>
             </form>
             </>
